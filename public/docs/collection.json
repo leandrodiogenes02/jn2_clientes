@@ -1,0 +1,259 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "localhost"
+        }
+    ],
+    "info": {
+        "name": "JN2",
+        "_postman_id": "92f06de4-c06d-463b-817c-ba71b55ddc23",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Endpoints",
+            "description": "",
+            "item": [
+                {
+                    "name": "Cadastro de novo cliente",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/cliente",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/cliente"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"nome\":\"Edson Luiz da Costa\",\"telefone\":\"84996558847\",\"cpf\":\"22427595071\",\"placa_carro\":\"QRF-3588\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Edi\u00e7\u00e3o de um cliente j\u00e1 existente",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/cliente\/:id",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/cliente\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID do cliente a ser editado."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"nome\":\"Edson Luiz da Costa\",\"telefone\":\"84996558847\",\"cpf\":\"22427595071\",\"placa_carro\":\"QRF-3588\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Deletar um cliente cadastrado",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/cliente\/:id",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/cliente\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID do cliente a ser deletado."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Consulta de dados de um cliente",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/cliente\/:id",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/cliente\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "ID do cliente a ser consultado."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "57"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"message\":\"Consulta realizada com sucesso.\",\"data\":{\"id\":1,\"nome\":\"Dr. Nelson Benites Neto\",\"telefone\":\"69937696560\",\"cpf\":\"98058024856\",\"placa_carro\":\"QRV-5599\"}}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Consultar clientes pelo ultimo n\u00famero da placa",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/consulta\/final-placa\/:numero",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/consulta\/final-placa\/:numero",
+                            "variable": [
+                                {
+                                    "id": "numero",
+                                    "key": "numero",
+                                    "value": "9",
+                                    "description": "Informe o ultimo n\u00famero da placa que quer pesquisar. (No m\u00e1ximo 1 numero)."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Aqui voc\u00ea pode consultar no banco de dados, os clientes cadastrados utilizando o ultimo n\u00famero da placa do carro deles.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "56"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{\"message\":\"Consulta realizada com sucesso\",\"data\":[{\"id\":1,\"nome\":\"Dr. Nelson Benites Neto\",\"telefone\":\"69937696560\",\"cpf\":\"98058024856\",\"placa_carro\":\"QRV-5599\"},{\"id\":8,\"nome\":\"Cynthia Lozano Neto\",\"telefone\":\"62927038172\",\"cpf\":\"79363850536\",\"placa_carro\":\"TV0-5749\"}]}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}

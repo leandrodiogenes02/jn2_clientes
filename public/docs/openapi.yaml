@@ -1,0 +1,263 @@
+openapi: 3.0.3
+info:
+  title: JN2
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/cliente:
+    post:
+      summary: 'Cadastro de novo cliente'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nome:
+                  type: string
+                  description: 'Nome completo do cliente. O campo value não pode conter mais de 255 caracteres.'
+                  example: 'Edson Luiz da Costa'
+                telefone:
+                  type: string
+                  description: 'Somente números, sem mascara e com o código de área. O campo value deve conter entre 10 a 11 dígitos.'
+                  example: '84996558847'
+                cpf:
+                  type: string
+                  description: 'Somente números, sem mascara. Precisa ser um cpf válido.'
+                  example: '22427595071'
+                placa_carro:
+                  type: string
+                  description: 'O campo value não pode conter mais de 8 caracteres.'
+                  example: QRF-3588
+              required:
+                - nome
+                - telefone
+                - cpf
+                - placa_carro
+      security: []
+  '/api/cliente/{id}':
+    put:
+      summary: 'Edição de um cliente já existente'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nome:
+                  type: string
+                  description: 'Nome completo do cliente. O campo value não pode conter mais de 255 caracteres.'
+                  example: 'Edson Luiz da Costa'
+                telefone:
+                  type: string
+                  description: 'Somente números, sem mascara e com o código de área. O campo value deve conter entre 10 a 11 dígitos.'
+                  example: '84996558847'
+                cpf:
+                  type: string
+                  description: 'Somente números, sem mascara. Precisa ser um cpf válido.'
+                  example: '22427595071'
+                placa_carro:
+                  type: string
+                  description: 'O campo value não pode conter mais de 8 caracteres.'
+                  example: QRF-3588
+      security: []
+    delete:
+      summary: 'Deletar um cliente cadastrado'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    get:
+      summary: 'Consulta de dados de um cliente'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Consulta realizada com sucesso.'
+                  data:
+                    id: 1
+                    nome: 'Dr. Nelson Benites Neto'
+                    telefone: '69937696560'
+                    cpf: '98058024856'
+                    placa_carro: QRV-5599
+                properties:
+                  message:
+                    type: string
+                    example: 'Consulta realizada com sucesso.'
+                  data:
+                    type: object
+                    example:
+                      id: 1
+                      nome: 'Dr. Nelson Benites Neto'
+                      telefone: '69937696560'
+                      cpf: '98058024856'
+                      placa_carro: QRV-5599
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'ID do cliente a ser editado.'
+        example: '1'
+        required: true
+        schema:
+          type: string
+  '/api/consulta/final-placa/{numero}':
+    get:
+      summary: 'Consultar clientes pelo ultimo número da placa'
+      description: 'Aqui você pode consultar no banco de dados, os clientes cadastrados utilizando o ultimo número da placa do carro deles.'
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Consulta realizada com sucesso'
+                  data:
+                    -
+                      id: 1
+                      nome: 'Dr. Nelson Benites Neto'
+                      telefone: '69937696560'
+                      cpf: '98058024856'
+                      placa_carro: QRV-5599
+                    -
+                      id: 8
+                      nome: 'Cynthia Lozano Neto'
+                      telefone: '62927038172'
+                      cpf: '79363850536'
+                      placa_carro: TV0-5749
+                properties:
+                  message:
+                    type: string
+                    example: 'Consulta realizada com sucesso'
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        nome: 'Dr. Nelson Benites Neto'
+                        telefone: '69937696560'
+                        cpf: '98058024856'
+                        placa_carro: QRV-5599
+                      -
+                        id: 8
+                        nome: 'Cynthia Lozano Neto'
+                        telefone: '62927038172'
+                        cpf: '79363850536'
+                        placa_carro: TV0-5749
+                    items:
+                      type: object
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: numero
+        description: 'Informe o ultimo número da placa que quer pesquisar. (No máximo 1 numero).'
+        example: '9'
+        required: true
+        schema:
+          type: string
+tags:
+  -
+    name: Endpoints
+    description: ''

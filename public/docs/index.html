@@ -1,0 +1,678 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>JN2 Documentation</title>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../docs/css/theme-default.style.css" media="screen">
+    <link rel="stylesheet" href="../docs/css/theme-default.print.css" media="print">
+    <script src="../docs/js/theme-default-3.16.0.js"></script>
+
+    <link rel="stylesheet"
+          href="//unpkg.com/@highlightjs/cdn-assets@10.7.2/styles/obsidian.min.css">
+    <script src="//unpkg.com/@highlightjs/cdn-assets@10.7.2/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <script src="//cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+    <script>
+        var baseUrl = "http://localhost";
+        var useCsrf = Boolean();
+        var csrfUrl = "/sanctum/csrf-cookie";
+    </script>
+    <script src="../docs/js/tryitout-3.16.0.js"></script>
+
+</head>
+
+<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;]">
+<a href="#" id="nav-button">
+      <span>
+        MENU
+        <img src="../docs/images/navbar.png" alt="navbar-image" />
+      </span>
+</a>
+<div class="tocify-wrapper">
+                <div class="lang-selector">
+                            <a href="#" data-language-name="bash">bash</a>
+                            <a href="#" data-language-name="javascript">javascript</a>
+                    </div>
+        <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+    <ul class="search-results"></ul>
+
+    <ul id="toc">
+    </ul>
+
+            <ul class="toc-footer" id="toc-footer">
+                            <li><a href="../docs/collection.json">View Postman collection</a></li>
+                            <li><a href="../docs/openapi.yaml">View OpenAPI spec</a></li>
+                            <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
+                    </ul>
+            <ul class="toc-footer" id="last-updated">
+            <li>Last updated: December 2 2021</li>
+        </ul>
+</div>
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1>Introdução</h1>
+<p>Documentação básica para API REST de controle de clientes com suas respectivas placas.</p>
+<blockquote>
+<p>Base URL</p>
+</blockquote>
+<pre><code class="language-yaml">http://localhost</code></pre>
+
+        
+
+        <h1 id="endpoints">Endpoints</h1>
+
+    
+
+            <h2 id="endpoints-POSTapi-cliente">Cadastro de novo cliente</h2>
+
+<p>
+    </p>
+
+
+
+<span id="example-requests-POSTapi-cliente">
+<blockquote>Example request:</blockquote>
+
+
+        <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/cliente" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"nome\": \"Edson Luiz da Costa\",
+    \"telefone\": \"84996558847\",
+    \"cpf\": \"22427595071\",
+    \"placa_carro\": \"QRF-3588\"
+}"
+</code></pre>
+    
+        <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/cliente"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "nome": "Edson Luiz da Costa",
+    "telefone": "84996558847",
+    "cpf": "22427595071",
+    "placa_carro": "QRF-3588"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+    </span>
+
+<span id="example-responses-POSTapi-cliente">
+</span>
+<span id="execution-results-POSTapi-cliente" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-cliente"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-cliente"></code></pre>
+</span>
+<span id="execution-error-POSTapi-cliente" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-cliente"></code></pre>
+</span>
+<form id="form-POSTapi-cliente" data-method="POST"
+      data-path="api/cliente"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-cliente', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-cliente"
+                    onclick="tryItOut('POSTapi-cliente');">Testar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-cliente"
+                    onclick="cancelTryOut('POSTapi-cliente');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-cliente" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/cliente</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>nome</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="nome"
+               data-endpoint="POSTapi-cliente"
+               value="Edson Luiz da Costa"
+               data-component="body" hidden>
+    <br>
+<p>Nome completo do cliente. O campo value não pode conter mais de 255 caracteres.</p>
+        </p>
+                <p>
+            <b><code>telefone</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="telefone"
+               data-endpoint="POSTapi-cliente"
+               value="84996558847"
+               data-component="body" hidden>
+    <br>
+<p>Somente números, sem mascara e com o código de área. O campo value deve conter entre 10 a 11 dígitos.</p>
+        </p>
+                <p>
+            <b><code>cpf</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="cpf"
+               data-endpoint="POSTapi-cliente"
+               value="22427595071"
+               data-component="body" hidden>
+    <br>
+<p>Somente números, sem mascara. Precisa ser um cpf válido.</p>
+        </p>
+                <p>
+            <b><code>placa_carro</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="placa_carro"
+               data-endpoint="POSTapi-cliente"
+               value="QRF-3588"
+               data-component="body" hidden>
+    <br>
+<p>O campo value não pode conter mais de 8 caracteres.</p>
+        </p>
+        </form>
+
+            <h2 id="endpoints-PUTapi-cliente--id-">Edição de um cliente já existente</h2>
+
+<p>
+    </p>
+
+
+
+<span id="example-requests-PUTapi-cliente--id-">
+<blockquote>Example request:</blockquote>
+
+
+        <pre><code class="language-bash">curl --request PUT \
+    "http://localhost/api/cliente/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"nome\": \"Edson Luiz da Costa\",
+    \"telefone\": \"84996558847\",
+    \"cpf\": \"22427595071\",
+    \"placa_carro\": \"QRF-3588\"
+}"
+</code></pre>
+    
+        <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/cliente/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "nome": "Edson Luiz da Costa",
+    "telefone": "84996558847",
+    "cpf": "22427595071",
+    "placa_carro": "QRF-3588"
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+    </span>
+
+<span id="example-responses-PUTapi-cliente--id-">
+</span>
+<span id="execution-results-PUTapi-cliente--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-cliente--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-cliente--id-"></code></pre>
+</span>
+<span id="execution-error-PUTapi-cliente--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-cliente--id-"></code></pre>
+</span>
+<form id="form-PUTapi-cliente--id-" data-method="PUT"
+      data-path="api/cliente/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-cliente--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-cliente--id-"
+                    onclick="tryItOut('PUTapi-cliente--id-');">Testar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-cliente--id-"
+                    onclick="cancelTryOut('PUTapi-cliente--id-');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-cliente--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/cliente/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="id"
+               data-endpoint="PUTapi-cliente--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>ID do cliente a ser editado.</p>
+            </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>nome</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="nome"
+               data-endpoint="PUTapi-cliente--id-"
+               value="Edson Luiz da Costa"
+               data-component="body" hidden>
+    <br>
+<p>Nome completo do cliente. O campo value não pode conter mais de 255 caracteres.</p>
+        </p>
+                <p>
+            <b><code>telefone</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="telefone"
+               data-endpoint="PUTapi-cliente--id-"
+               value="84996558847"
+               data-component="body" hidden>
+    <br>
+<p>Somente números, sem mascara e com o código de área. O campo value deve conter entre 10 a 11 dígitos.</p>
+        </p>
+                <p>
+            <b><code>cpf</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="cpf"
+               data-endpoint="PUTapi-cliente--id-"
+               value="22427595071"
+               data-component="body" hidden>
+    <br>
+<p>Somente números, sem mascara. Precisa ser um cpf válido.</p>
+        </p>
+                <p>
+            <b><code>placa_carro</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+                <input type="text"
+               name="placa_carro"
+               data-endpoint="PUTapi-cliente--id-"
+               value="QRF-3588"
+               data-component="body" hidden>
+    <br>
+<p>O campo value não pode conter mais de 8 caracteres.</p>
+        </p>
+        </form>
+
+            <h2 id="endpoints-DELETEapi-cliente--id-">Deletar um cliente cadastrado</h2>
+
+<p>
+    </p>
+
+
+
+<span id="example-requests-DELETEapi-cliente--id-">
+<blockquote>Example request:</blockquote>
+
+
+        <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost/api/cliente/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre>
+    
+        <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/cliente/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+    </span>
+
+<span id="example-responses-DELETEapi-cliente--id-">
+</span>
+<span id="execution-results-DELETEapi-cliente--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-cliente--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-cliente--id-"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-cliente--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-cliente--id-"></code></pre>
+</span>
+<form id="form-DELETEapi-cliente--id-" data-method="DELETE"
+      data-path="api/cliente/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-cliente--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-cliente--id-"
+                    onclick="tryItOut('DELETEapi-cliente--id-');">Testar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-cliente--id-"
+                    onclick="cancelTryOut('DELETEapi-cliente--id-');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-cliente--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/cliente/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="id"
+               data-endpoint="DELETEapi-cliente--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>ID do cliente a ser deletado.</p>
+            </p>
+                    </form>
+
+            <h2 id="endpoints-GETapi-cliente--id-">Consulta de dados de um cliente</h2>
+
+<p>
+    </p>
+
+
+
+<span id="example-requests-GETapi-cliente--id-">
+<blockquote>Example request:</blockquote>
+
+
+        <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/cliente/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre>
+    
+        <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/cliente/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+    </span>
+
+<span id="example-responses-GETapi-cliente--id-">
+                    <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                            <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">                        cache-control: no-cache, private
+                                            content-type: application/json
+                                            x-ratelimit-limit: 60
+                                            x-ratelimit-remaining: 57
+                     </code></pre>
+        </details>             <pre>
+                                        
+                    <code class="language-json">{
+    &quot;message&quot;: &quot;Consulta realizada com sucesso.&quot;,
+    &quot;data&quot;: {
+        &quot;id&quot;: 1,
+        &quot;nome&quot;: &quot;Dr. Nelson Benites Neto&quot;,
+        &quot;telefone&quot;: &quot;69937696560&quot;,
+        &quot;cpf&quot;: &quot;98058024856&quot;,
+        &quot;placa_carro&quot;: &quot;QRV-5599&quot;
+    }
+}</code>
+                 </pre>
+            </span>
+<span id="execution-results-GETapi-cliente--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-cliente--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-cliente--id-"></code></pre>
+</span>
+<span id="execution-error-GETapi-cliente--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-cliente--id-"></code></pre>
+</span>
+<form id="form-GETapi-cliente--id-" data-method="GET"
+      data-path="api/cliente/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-cliente--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-cliente--id-"
+                    onclick="tryItOut('GETapi-cliente--id-');">Testar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-cliente--id-"
+                    onclick="cancelTryOut('GETapi-cliente--id-');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-cliente--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/cliente/{id}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>id</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="id"
+               data-endpoint="GETapi-cliente--id-"
+               value="1"
+               data-component="url" hidden>
+    <br>
+<p>ID do cliente a ser consultado.</p>
+            </p>
+                    </form>
+
+            <h2 id="endpoints-GETapi-consulta-final-placa--numero-">Consultar clientes pelo ultimo número da placa</h2>
+
+<p>
+    </p>
+
+<p>Aqui você pode consultar no banco de dados, os clientes cadastrados utilizando o ultimo número da placa do carro deles.</p>
+
+<span id="example-requests-GETapi-consulta-final-placa--numero-">
+<blockquote>Example request:</blockquote>
+
+
+        <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/consulta/final-placa/9" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre>
+    
+        <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/consulta/final-placa/9"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+    </span>
+
+<span id="example-responses-GETapi-consulta-final-placa--numero-">
+                    <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                            <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">                        cache-control: no-cache, private
+                                            content-type: application/json
+                                            x-ratelimit-limit: 60
+                                            x-ratelimit-remaining: 56
+                     </code></pre>
+        </details>             <pre>
+                                        
+                    <code class="language-json">{
+    &quot;message&quot;: &quot;Consulta realizada com sucesso&quot;,
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 1,
+            &quot;nome&quot;: &quot;Dr. Nelson Benites Neto&quot;,
+            &quot;telefone&quot;: &quot;69937696560&quot;,
+            &quot;cpf&quot;: &quot;98058024856&quot;,
+            &quot;placa_carro&quot;: &quot;QRV-5599&quot;
+        },
+        {
+            &quot;id&quot;: 8,
+            &quot;nome&quot;: &quot;Cynthia Lozano Neto&quot;,
+            &quot;telefone&quot;: &quot;62927038172&quot;,
+            &quot;cpf&quot;: &quot;79363850536&quot;,
+            &quot;placa_carro&quot;: &quot;TV0-5749&quot;
+        }
+    ]
+}</code>
+                 </pre>
+            </span>
+<span id="execution-results-GETapi-consulta-final-placa--numero-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-consulta-final-placa--numero-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-consulta-final-placa--numero-"></code></pre>
+</span>
+<span id="execution-error-GETapi-consulta-final-placa--numero-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-consulta-final-placa--numero-"></code></pre>
+</span>
+<form id="form-GETapi-consulta-final-placa--numero-" data-method="GET"
+      data-path="api/consulta/final-placa/{numero}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-consulta-final-placa--numero-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-consulta-final-placa--numero-"
+                    onclick="tryItOut('GETapi-consulta-final-placa--numero-');">Testar ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-consulta-final-placa--numero-"
+                    onclick="cancelTryOut('GETapi-consulta-final-placa--numero-');" hidden>Cancel
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-consulta-final-placa--numero-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/consulta/final-placa/{numero}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>numero</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="numero"
+               data-endpoint="GETapi-consulta-final-placa--numero-"
+               value="9"
+               data-component="url" hidden>
+    <br>
+<p>Informe o ultimo número da placa que quer pesquisar. (No máximo 1 numero).</p>
+            </p>
+                    </form>
+
+    
+
+        
+    </div>
+    <div class="dark-box">
+                    <div class="lang-selector">
+                                    <a href="#" data-language-name="bash">bash</a>
+                                    <a href="#" data-language-name="javascript">javascript</a>
+                            </div>
+            </div>
+</div>
+<script>
+    $(function () {
+        var exampleLanguages = ["bash","javascript"];
+        setupLanguages(exampleLanguages);
+    });
+</script>
+</body>
+</html>
